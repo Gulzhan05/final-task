@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Task Webpage</title>
+
+<style>
+:root{
+  --bg1:#3b2cc4;
+  --bg2:#6a1bb1;
+  --card:rgba(255,255,255,.12);
+  --border:rgba(255,255,255,.25);
+  --text:#ffffff;
+  --muted:#cfcfff;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Arial;
+  color:var(--text);
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+}
+.container{max-width:900px;margin:auto;padding:20px}
+h1,h2{margin:0 0 10px}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-bottom:16px;
+}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.15);
+  cursor:pointer;
+  font-size:14px;
+}
+.tab.active{background:white;color:#333}
+.section{display:none}
+.section.active{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,textarea{
+  width:100%;
+  background:rgba(0,0,0,.25);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  color:white;
+}
+textarea{min-height:80px}
+.badges span{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.2);
+  margin:4px 4px 0 0;
+  font-size:13px;
+}
+.footer{text-align:center;font-size:13px;color:var(--muted)}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Final Task Webpage</h1>
+  <p style="color:var(--muted)">Student Profile + README + Weekly Tasks (Combined)</p>
+
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('profile')">Profile</div>
+    <div class="tab" onclick="openTab('weekly')">Weekly Tasks</div>
+    <div class="tab" onclick="openTab('combined')">Combined Tasks</div>
+    <div class="tab" onclick="openTab('readme')">README</div>
+  </div>
+
+  <!-- PROFILE -->
+  <div id="profile" class="section active card">
+    <h2>Student Profile</h2>
+    <div class="grid">
+      <input placeholder="Full Name" value="Gulzhan Abdizakirova">
+      <input placeholder="Group / Course" value="Introduction to HTML, CSS">
+      <input placeholder="University" value="ISMA (Riga, Latvia)">
+      <input placeholder="GitHub" value="https://github.com/Gulzhan05">
+      <input placeholder="Student ID" value="">
+      <input placeholder="Year" value="2025">
+    </div>
+    <textarea placeholder="About Me">
+I am a student studying HTML, CSS and JavaScript. This website contains my profile, tasks and final project.
+    </textarea>
+    <div class="badges">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>GitHub Pages</span>
+    </div>
+  </div>
+
+  <!-- WEEKLY -->
+  <div id="weekly" class="section card">
+    <h2>Weekly Tasks</h2>
+    <ul>
+      <li>Week 1 – HTML basics</li>
+      <li>Week 2 – CSS styling</li>
+      <li>Week 3 – JavaScript intro</li>
+      <li>Week 4 – GitHub Pages</li>
+    </ul>
+  </div>
+
+  <!-- COMBINED -->
+  <div id="combined" class="section card">
+    <h2>Combined Tasks</h2>
+    <p>This section combines all weekly tasks into one final project.</p>
+  </div>
+
+  <!-- README -->
+  <div id="readme" class="section card">
+    <h2>README</h2>
+    <p>
+This is my Final Task Webpage.<br>
+It includes my student profile, weekly tasks, combined tasks and is deployed using GitHub Pages.
+    </p>
+  </div>
+
+  <div class="footer">© 2025 Gulzhan • Final Task</div>
+</div>
+
+<script>
+function openTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
